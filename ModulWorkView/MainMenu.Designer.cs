@@ -1,4 +1,4 @@
-﻿namespace ModulWorkView
+﻿namespace ModuleWorkView
 {
     partial class MainMenu
     {

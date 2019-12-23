@@ -2,12 +2,12 @@
 {
     public class Drink
     {
-        public readonly Ingredients Composition;
+        public readonly IIngredients Composition;
 
-        public Drink(string name, int coffee, int milk, int water)
+        public Drink(string name, IIngredients composition)
         {
             Name = name;
-            Composition = new Ingredients(coffee, milk, water);
+            Composition = composition;
         }
 
         public string Name { get; }

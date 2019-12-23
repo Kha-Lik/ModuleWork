@@ -1,8 +1,9 @@
 ﻿using System;
+using ModuleWorkModel;
 
-namespace ModuleWorkModel
+namespace ModuleWorkView
 {
-    public class Ingredients
+    public class Ingredients : IIngredients
     {
         private int _coffee;
         private int _milk;
@@ -50,21 +51,23 @@ namespace ModuleWorkModel
             }
         }
 
-        public static Ingredients operator -(Ingredients a, Ingredients b)
+        public IIngredients Sub(IIngredients b)
         {
+            var sec = b as Ingredients;
             var res = new Ingredients();
-            res.Coffee = a.Coffee - b.Coffee;
-            res.Milk = a.Milk - b.Milk;
-            res.Water = a.Water - b.Water;
+            res.Coffee = Coffee - sec.Coffee;
+            res.Milk = Milk - sec.Milk;
+            res.Water = Water - sec.Water;
             return res;
         }
 
-        public static Ingredients operator +(Ingredients a, Ingredients b)
+        public IIngredients Sum(IIngredients b)
         {
+            var sec = b as Ingredients;
             var res = new Ingredients();
-            res.Coffee = a.Coffee + b.Coffee;
-            res.Milk = a.Milk + b.Milk;
-            res.Water = a.Water + b.Water;
+            res.Coffee = Coffee + sec.Coffee;
+            res.Milk = Milk + sec.Milk;
+            res.Water = Water + sec.Water;
             return res;
         }
     }
