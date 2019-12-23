@@ -142,7 +142,7 @@
             this.getUsedBtn.Name = "getUsedBtn";
             this.getUsedBtn.Size = new System.Drawing.Size(252, 24);
             this.getUsedBtn.TabIndex = 11;
-            this.getUsedBtn.Text = "Count uesd ingredients";
+            this.getUsedBtn.Text = "Count used ingredients";
             this.getUsedBtn.UseVisualStyleBackColor = true;
             this.getUsedBtn.Click += new System.EventHandler(this.getUsedBtn_Click);
             // 
@@ -158,6 +158,7 @@
             // 
             this.refillPeriodBox.Location = new System.Drawing.Point(268, 179);
             this.refillPeriodBox.Name = "refillPeriodBox";
+            this.refillPeriodBox.ReadOnly = true;
             this.refillPeriodBox.Size = new System.Drawing.Size(116, 23);
             this.refillPeriodBox.TabIndex = 13;
             // 
@@ -175,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 519);
+            this.ClientSize = new System.Drawing.Size(414, 282);
             this.Controls.Add(this.refillPeriodBtn);
             this.Controls.Add(this.refillPeriodBox);
             this.Controls.Add(this.label6);
@@ -191,8 +192,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.machinesListBox);
+            this.MaximumSize = new System.Drawing.Size(430, 321);
             this.Name = "MainMenu";
-            this.Text = "Form1";
+            this.Text = "Main menu";
             this.ResumeLayout(false);
             this.PerformLayout();
         }

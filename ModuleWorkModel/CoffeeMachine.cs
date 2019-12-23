@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Xml.Serialization;
 
 namespace ModuleWorkModel
 {
-    public class CoffeMachine
+    public class CoffeeMachine
     {
-        public string Name { get; }
-        private List<Drink> availableDrinks = new List<Drink>();
-        private Dictionary<DateTime, Drink> history = new Dictionary<DateTime, Drink>();
         public readonly Ingredients MaxIngredients;
+        private readonly List<Drink> availableDrinks = new List<Drink>();
         private Ingredients CurreentIngredients;
+        private readonly Dictionary<DateTime, Drink> history = new Dictionary<DateTime, Drink>();
 
-        public CoffeMachine(List<Drink> drinks, string name, int coffe, int milk, int water)
+        public CoffeeMachine(List<Drink> drinks, string name, int coffe, int milk, int water)
         {
             availableDrinks = drinks;
             Name = name;
@@ -22,9 +19,11 @@ namespace ModuleWorkModel
             CurreentIngredients = new Ingredients(coffe, milk, water);
         }
 
+        public string Name { get; }
+
         public void TakeDrink(string drinkName)
         {
-            Drink drink = availableDrinks.FirstOrDefault(x => x.Name == drinkName);
+            var drink = availableDrinks.FirstOrDefault(x => x.Name == drinkName);
             if (drink == null) throw new ArgumentException($"This machine can't make {drinkName}");
             try
             {
@@ -39,7 +38,7 @@ namespace ModuleWorkModel
 
         public void TakeDrink_dev(string drinkName, DateTime time)
         {
-            Drink drink = availableDrinks.FirstOrDefault(x => x.Name == drinkName);
+            var drink = availableDrinks.FirstOrDefault(x => x.Name == drinkName);
             if (drink == null) throw new ArgumentException($"This machine can't make {drinkName}");
             try
             {
@@ -52,6 +51,9 @@ namespace ModuleWorkModel
             }
         }
 
-        public Dictionary<DateTime, Drink> GetHistory() => history;
+        public Dictionary<DateTime, Drink> GetHistory()
+        {
+            return history;
+        }
     }
 }

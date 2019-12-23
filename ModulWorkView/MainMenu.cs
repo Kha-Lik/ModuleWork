@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ModuleWorkModel;
 
@@ -13,7 +7,8 @@ namespace ModulWorkView
 {
     public partial class MainMenu : Form
     {
-        CoffeMachinesContainer _machinesContainer = new CoffeMachinesContainer();
+        private readonly CoffeeMachinesContainer _machinesContainer = new CoffeeMachinesContainer();
+
         public MainMenu()
         {
             InitializeComponent();
@@ -48,12 +43,12 @@ namespace ModulWorkView
 
         private void InitialLoad()
         {
-            List<Drink> drinks1 = new List<Drink>();
+            var drinks1 = new List<Drink>();
             drinks1.Add(new Drink("Capuccino", 10, 100, 100));
             drinks1.Add(new Drink("Espresso", 5, 0, 25));
             drinks1.Add(new Drink("American", 5, 0, 50));
 
-            List<Drink> drinks2 = new List<Drink>();
+            var drinks2 = new List<Drink>();
             drinks2.Add(new Drink("Espresso with milk", 5, 25, 25));
             drinks2.Add(new Drink("Double espresso", 10, 0, 50));
             drinks2.Add(new Drink("Double american with milk", 10, 50, 100));
@@ -67,10 +62,14 @@ namespace ModulWorkView
             _machinesContainer.GetMachine("First").TakeDrink_dev("American", new DateTime(2019, 12, 14, 16, 12, 12));
             _machinesContainer.GetMachine("First").TakeDrink_dev("Espresso", new DateTime(2019, 12, 18, 16, 12, 12));
 
-            _machinesContainer.GetMachine("Second").TakeDrink_dev("Double american with milk",  new DateTime(2019, 12, 10, 12, 12, 12));
-            _machinesContainer.GetMachine("Second").TakeDrink_dev("Double espresso", new DateTime(2019, 12, 12, 12, 12, 12));
-            _machinesContainer.GetMachine("Second").TakeDrink_dev("Espresso with milk", new DateTime(2019, 12, 13, 12, 12, 12));
-            _machinesContainer.GetMachine("Second").TakeDrink_dev("Double american with milk", new DateTime(2019, 12, 14, 12, 12, 12));
+            _machinesContainer.GetMachine("Second")
+                .TakeDrink_dev("Double american with milk", new DateTime(2019, 12, 10, 12, 12, 12));
+            _machinesContainer.GetMachine("Second")
+                .TakeDrink_dev("Double espresso", new DateTime(2019, 12, 12, 12, 12, 12));
+            _machinesContainer.GetMachine("Second")
+                .TakeDrink_dev("Espresso with milk", new DateTime(2019, 12, 13, 12, 12, 12));
+            _machinesContainer.GetMachine("Second")
+                .TakeDrink_dev("Double american with milk", new DateTime(2019, 12, 14, 12, 12, 12));
         }
     }
 }
