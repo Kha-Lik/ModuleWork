@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace ModuleWork
+namespace ModuleWorkModel
 {
     public class Drink
     {

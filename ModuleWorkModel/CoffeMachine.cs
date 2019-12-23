@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace ModuleWork
+namespace ModuleWorkModel
 {
     public class CoffeMachine
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ModuleWork
+namespace ModuleWorkModel
 {
     public class Ingredients
     {

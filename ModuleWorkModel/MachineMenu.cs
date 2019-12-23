@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ModuleWork
+namespace ModuleWorkModel
 {
-    static class Menu
+    public static class MachineMenu
     {
         public static Ingredients GetIngredientsUsing(CoffeMachine machine, DateTime start, DateTime end)
         {
