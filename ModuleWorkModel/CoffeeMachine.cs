@@ -30,7 +30,7 @@ namespace ModuleWorkModel
                 history.Add(DateTime.Now, drink);
                 _curreentIngredients = _curreentIngredients.Sub(drink.Composition);
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException)
             {
                 throw new ArgumentException($"Not enough ingredients to make {drinkName}");
             }
@@ -45,7 +45,7 @@ namespace ModuleWorkModel
                 history.Add(time, drink);
                 _curreentIngredients = _curreentIngredients.Sub(drink.Composition);
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException)
             {
                 throw new ArgumentException($"Not enough ingredients to make {drinkName}");
             }

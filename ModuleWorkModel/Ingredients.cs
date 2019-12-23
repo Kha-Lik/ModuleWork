@@ -1,7 +1,6 @@
 ﻿using System;
-using ModuleWorkModel;
 
-namespace ModuleWorkView
+namespace ModuleWorkModel
 {
     public class Ingredients : IIngredients
     {

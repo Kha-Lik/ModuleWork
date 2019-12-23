@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ModuleWorkModel.CoffeeMachinesContainer">
+    <Position X="9.5" Y="1.25" Width="1.5" />
+    <AssociationLine Name="machines" Type="ModuleWorkModel.CoffeeMachine">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.277" Y="0.112" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAEAgAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CoffeeMachinesContainer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="machines" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ModuleWorkModel.Drink">
+    <Position X="4.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Drink.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Composition" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ModuleWorkModel.CoffeeMachine">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAgAAAAAAAAQAAAgAAAAAAAAAAABAAiQ=</HashCode>
+      <FileName>CoffeeMachine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_curreentIngredients" />
+      <Field Name="MaxIngredients" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="availableDrinks" />
+      <Field Name="history" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ModuleWorkModel.Ingredients">
+    <Position X="2" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAIAAAAAAAIAAAgAACAAAAAAAAAAIQ=</HashCode>
+      <FileName>Ingredients.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ModuleWorkModel.MachineMenu">
+    <Position X="7.5" Y="6.25" Width="1.5" />
+    <AssociationLine Name="_machine" Type="ModuleWorkModel.CoffeeMachine">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.1" Y="0.445" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ABgAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MachineMenu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_machine" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="ModuleWorkModel.IIngredients">
+    <Position X="4.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>IIngredients.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ModuleWorkModel.IMachineMenu">
+    <Position X="2" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IMachineMenu.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

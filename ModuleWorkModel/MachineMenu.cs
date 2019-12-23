@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ModuleWorkModel;
 
-namespace ModuleWorkView
+namespace ModuleWorkModel
 {
     public class MachineMenu : IMachineMenu
     {
-        public IIngredients GetIngredientsUsing(CoffeeMachine machine, DateTime start, DateTime end)
+        private CoffeeMachine _machine;
+
+        public MachineMenu(CoffeeMachine machine) => _machine = machine;
+        public IIngredients GetIngredientsUsing( DateTime start, DateTime end)
         {
             var usedIngs = new Ingredients();
-            foreach (var kvp in machine.GetHistory())
+            foreach (var kvp in _machine.GetHistory())
                 if (kvp.Key >= start && kvp.Key <= end)
                 {
                     var ings = kvp.Value.Composition;
@@ -20,18 +22,18 @@ namespace ModuleWorkView
             return usedIngs;
         }
 
-        public int CountRefillPeriod(CoffeeMachine machine, DateTime start, DateTime end)
+        public int CountRefillPeriod( DateTime start, DateTime end)
         {
-            var usedIngs = GetIngredientsUsing(machine, start, end) as Ingredients;
+            var usedIngs = GetIngredientsUsing(start, end) as Ingredients;
             var hoursUsing = (end - start).TotalHours;
             var usingSpeeds = new List<double>();
             usingSpeeds.Add(usedIngs.Coffee / hoursUsing);
             usingSpeeds.Add(usedIngs.Milk / hoursUsing);
             usingSpeeds.Add(usedIngs.Water / hoursUsing);
             var refillPeriods = new List<double>();
-            refillPeriods.Add((machine.MaxIngredients as Ingredients).Coffee / usingSpeeds[0]);
-            refillPeriods.Add((machine.MaxIngredients as Ingredients).Milk / usingSpeeds[1]);
-            refillPeriods.Add((machine.MaxIngredients as Ingredients).Water / usingSpeeds[2]);
+            refillPeriods.Add((_machine.MaxIngredients as Ingredients).Coffee / usingSpeeds[0]);
+            refillPeriods.Add((_machine.MaxIngredients as Ingredients).Milk / usingSpeeds[1]);
+            refillPeriods.Add((_machine.MaxIngredients as Ingredients).Water / usingSpeeds[2]);
             var refillPeriod = refillPeriods.Min();
             return (int) refillPeriod;
         }

@@ -8,8 +8,6 @@ namespace ModuleWorkView
     public partial class MainMenu : Form
     {
         private readonly CoffeeMachinesContainer _machinesContainer = new CoffeeMachinesContainer();
-        private MachineMenu menu = new MachineMenu();
-
         public MainMenu()
         {
             InitializeComponent();
@@ -24,7 +22,8 @@ namespace ModuleWorkView
             var selectedMachine = machinesListBox.SelectedItem.ToString();
 
             var machine = _machinesContainer.GetMachine(selectedMachine);
-            var usedIngs = menu.GetIngredientsUsing(machine, start, end) as Ingredients;
+            MachineMenu menu = new MachineMenu(machine);
+            var usedIngs = menu.GetIngredientsUsing(start, end) as Ingredients;
 
             usedCoffeBox.Text = usedIngs.Coffee.ToString();
             usedMilkBox.Text = usedIngs.Milk.ToString();
@@ -38,7 +37,8 @@ namespace ModuleWorkView
             var selectedMachine = machinesListBox.SelectedItem.ToString();
 
             var machine = _machinesContainer.GetMachine(selectedMachine);
-            var refillPeriod = menu.CountRefillPeriod(machine, start, end);
+            MachineMenu menu = new MachineMenu(machine);
+            var refillPeriod = menu.CountRefillPeriod(start, end);
             refillPeriodBox.Text = refillPeriod.ToString();
         }
 
