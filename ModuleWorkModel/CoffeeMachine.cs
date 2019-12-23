@@ -6,17 +6,17 @@ namespace ModuleWorkModel
 {
     public class CoffeeMachine
     {
-        public readonly Ingredients MaxIngredients;
         private readonly List<Drink> availableDrinks = new List<Drink>();
-        private Ingredients CurreentIngredients;
         private readonly Dictionary<DateTime, Drink> history = new Dictionary<DateTime, Drink>();
+        public readonly IIngredients MaxIngredients;
+        private IIngredients _curreentIngredients;
 
-        public CoffeeMachine(List<Drink> drinks, string name, int coffe, int milk, int water)
+        public CoffeeMachine(List<Drink> drinks, string name, IIngredients maxIngredients)
         {
             availableDrinks = drinks;
             Name = name;
-            MaxIngredients = new Ingredients(coffe, milk, water);
-            CurreentIngredients = new Ingredients(coffe, milk, water);
+            MaxIngredients = maxIngredients;
+            _curreentIngredients = maxIngredients;
         }
 
         public string Name { get; }
@@ -28,9 +28,9 @@ namespace ModuleWorkModel
             try
             {
                 history.Add(DateTime.Now, drink);
-                CurreentIngredients -= drink.Composition;
+                _curreentIngredients = _curreentIngredients.Sub(drink.Composition);
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException)
             {
                 throw new ArgumentException($"Not enough ingredients to make {drinkName}");
             }
@@ -43,9 +43,9 @@ namespace ModuleWorkModel
             try
             {
                 history.Add(time, drink);
-                CurreentIngredients -= drink.Composition;
+                _curreentIngredients = _curreentIngredients.Sub(drink.Composition);
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException)
             {
                 throw new ArgumentException($"Not enough ingredients to make {drinkName}");
             }

@@ -8,11 +8,11 @@ namespace ModuleWorkModel
     {
         private readonly List<CoffeeMachine> machines = new List<CoffeeMachine>();
 
-        public void AddMachine(List<Drink> drinks, string name, int coffe, int milk, int water)
+        public void AddMachine(List<Drink> drinks, string name, IIngredients maxIngredients)
         {
             if (machines.FirstOrDefault(x => x.Name == name) != null)
                 throw new ArgumentException("Already exists machine with this name");
-            machines.Add(new CoffeeMachine(drinks, name, coffe, milk, water));
+            machines.Add(new CoffeeMachine(drinks, name, maxIngredients));
         }
 
         public CoffeeMachine GetMachine(string name)

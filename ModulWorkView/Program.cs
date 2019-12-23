@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace ModulWorkView
+namespace ModuleWorkView
 {
     internal static class Program
     {
